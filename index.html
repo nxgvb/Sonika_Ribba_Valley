@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonika's Kinnauri Enterprise | Official Store</title>
+    <style>
+        :root {
+            --primary: #8B263E; /* Traditional Himachali Maroon */
+            --secondary: #1E4620; /* Kinnauri Pine Green */
+            --light: #FDFBF7;
+            --dark: #2B2D42;
+            --gray: #6C757D;
+            --fb-color: #1877F2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), 
+                        url('https://unsplash.com') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+        }
+
+        .btn-main {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-main:hover {
+            background-color: #6a1c2e;
+        }
+
+        .btn-fb {
+            background-color: var(--fb-color);
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .btn-fb:hover {
+            background-color: #145dbf;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            color: var(--primary);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+            margin: 10px auto 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+        }
+
+        .product-img-container {
+            height: 320px;
+            width: 100%;
+            overflow: hidden;
+            background-color: #f5f5f5;
+        }
+
+        .product-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img-container img {
+            transform: scale(1.04);
+        }
+
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+
+        .product-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        .btn-order {
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-order:hover {
+            background-color: #128C7E;
+        }
+
+        .notice-box {
+            background-color: #FFF3CD;
+            color: #856404;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            border: 1px solid #FFEEBA;
+        }
+
+        .contact-section {
+            background-color: white;
+            padding: 40px 20px;
+            border-top: 1px solid #eee;
+            margin-top: 60px;
+        }
+
+        .contact-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary);
+        }
+
+        .contact-box h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            margin-bottom: 10px;
+        }
+
+        .contact-box strong {
+            color: var(--dark);
+        }
+
+        .email-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Sonika's Kinnauri Enterprise</h1>
+                <p>Authentic Ribba Village Produce</p>
+            </div>
+            <div class="nav-buttons">
+                <a href="https://www.facebook.com/bhushan.negi1/" target="_blank" class="btn-fb">Facebook Updates</a>
+                <a href="https://wa.link/eic46g" target="_blank" class="btn-order">Order Inquiries</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>Premium Kinnaur Heritage Products</h2>
+        <p>100% genuine high-altitude Kinnaur fruit varieties, pristine mountain kidney beans, and masterfully crafted traditional handlooms from Ribba Village.</p>
+        <a href="#catalog" class="btn-main">Shop the Catalog</a>
+    </section>
+
+    <div class="container" id="catalog">
+        <div class="notice-box">
+            📌 <strong>Important Ordering Note:</strong> All products are safely packaged at our orchard facility in Ribba and shipped directly across India on a <strong>prepaid basis</strong>. Click any item to check delivery rates and book your batch via WhatsApp!
+        </div>
+
+        <h2 class="section-title">Our Pure Ribba Harvest & Crafts</h2>
+        <div class="grid">
+
+            <!-- Product 1: Traditional Kinnauri Topi -->
+            <div class="product-card">
+                <div class="product-img-container">
+                    <img src="https://unsplash.com" alt="Traditional Kinnauri Topi Caps from Ribba" onerror="this.src='https://placehold.co'">
+                </div>
+                <div class="product-info">
+                    <h3>Traditional Kinnauri Topi (Caps)</h3>
+                    <p>Authentic hand-finished woolen Himachali caps highlighting distinctive rich green velvet bands. Proudly handcrafted by local weavers.</p>
+                    <div class="price-row">
+                        <div class="price">Pure Woolen</div>
+                        <a href="https://wa.link/eic46g" target="_blank" class="btn-order">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2: Organic Kinnauri Rajma -->
+            <div class="product-card">
+                <div class="product-img-container">
+                    <img src="https://unsplash.com" alt="Organic Ribba Rajma Beans" onerror="this.src='https://placehold.co'">
+                </div>
+                <div class="product-info">
+                    <h3>Organic Ribba Rajma</h3>
